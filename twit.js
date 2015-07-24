@@ -22,12 +22,7 @@ if (Meteor.isServer) {
 
     var Twit = Meteor.npmRequire('twit');
 
-    var T = new Twit({
-      consumer_key: "0qhVFTOKI3dbHZ3wFggFzAL5K",
-      consumer_secret: "BuWITk4cJSeDCShuWQAzteW5hmUf6FjAzEWamEP9CBaYcQFGrf",
-      access_token: "104469771-M25yvqBlJndNiyWXBnzNnQPCjVKRLmUty0qTfvA3",
-      access_token_secret: "h55QANzcOoT4A65QJkJ5GBdvkCSRVGiGfUfLpTVWrj7ed"
-    });
+    var T = new Twit(Meteor.settings.twitterKeys);
 
     T.get(
       'statuses/user_timeline', {
